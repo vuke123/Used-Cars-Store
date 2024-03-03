@@ -1,0 +1,6 @@
+{
+  "database":"postgres",
+  "user":"Vuki",
+  "password":"Pshgboy123",
+  "host":"flaskpostgres-abc123.postgres.database.azure.com"
+}
