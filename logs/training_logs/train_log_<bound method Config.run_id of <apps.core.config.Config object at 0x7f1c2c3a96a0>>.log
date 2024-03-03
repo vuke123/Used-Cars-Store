@@ -1,0 +1,54 @@
+2024-03-03 11:57:31,240 : INFO : Start of Training
+2024-03-03 11:57:31,240 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7f1c2c3a96a0>>
+2024-03-03 11:57:31,240 : INFO : Start of reading dataset...
+2024-03-03 11:57:32,544 : INFO : End of reading dataset...
+2024-03-03 11:57:32,544 : INFO : Start of splitting features and label ...
+2024-03-03 11:57:32,546 : INFO : End of splitting features and label ...
+2024-03-03 11:57:32,546 : INFO : Saving to database
+2024-03-03 11:57:32,546 : INFO : Start of creating table...
+2024-03-03 11:57:33,418 : ERROR : Error while connecting to database: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "luka" does not exist
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 34, in database_connection
+    def database_connection(self, database_name):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "luka" does not exist
+
+2024-03-03 11:57:33,596 : ERROR : Exception raised while creating table: 
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 34, in database_connection
+    def database_connection(self, database_name):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "luka" does not exist
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 50, in create_table
+    try:
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 44, in database_connection
+    except Exception as e:
+ConnectionError
+2024-03-03 11:57:33,597 : ERROR : Unsuccessful End of Training
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 34, in database_connection
+    def database_connection(self, database_name):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "luka" does not exist
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/training/train.py", line 54, in training_model
+    pg_db.create_table(self.training_db, "uc_training_data")
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 78, in create_table
+    except Exception as e:
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 50, in create_table
+    try:
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 44, in database_connection
+    except Exception as e:
+ConnectionError

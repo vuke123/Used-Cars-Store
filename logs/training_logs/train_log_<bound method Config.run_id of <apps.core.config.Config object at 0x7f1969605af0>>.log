@@ -1,0 +1,61 @@
+2024-03-03 17:50:50,798 : INFO : Start of Training
+2024-03-03 17:50:50,799 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7f1969605af0>>
+2024-03-03 17:50:50,799 : INFO : Start of reading dataset...
+2024-03-03 17:50:53,218 : INFO : End of reading dataset...
+2024-03-03 17:50:53,218 : INFO : Start of splitting features and label ...
+2024-03-03 17:50:53,220 : INFO : End of splitting features and label ...
+2024-03-03 17:50:53,220 : INFO : Saving to database
+2024-03-03 17:50:56,350 : INFO : Start of creating table...
+2024-03-03 17:50:56,784 : INFO : Opened used_cars database successfully
+2024-03-03 17:50:57,165 : INFO : ALTER TABLE uc_training_data ADD COLUMN Year
+2024-03-03 17:50:57,219 : INFO : ALTER TABLE uc_training_data ADD COLUMN Mileage
+2024-03-03 17:50:57,269 : INFO : ALTER TABLE uc_training_data ADD COLUMN Engine
+2024-03-03 17:50:57,319 : INFO : ALTER TABLE uc_training_data ADD COLUMN Power
+2024-03-03 17:50:57,369 : INFO : ALTER TABLE uc_training_data ADD COLUMN Price
+2024-03-03 17:50:57,419 : INFO : ALTER TABLE uc_training_data ADD COLUMN Brand
+2024-03-03 17:50:57,469 : INFO : ALTER TABLE uc_training_data ADD COLUMN Normalized_Kilometers
+2024-03-03 17:50:57,526 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_CNG
+2024-03-03 17:50:57,583 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_Diesel
+2024-03-03 17:50:57,645 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_LPG
+2024-03-03 17:50:57,704 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_Petrol
+2024-03-03 17:50:57,775 : INFO : ALTER TABLE uc_training_data ADD COLUMN Transmission_Automatic
+2024-03-03 17:50:57,843 : INFO : ALTER TABLE uc_training_data ADD COLUMN Transmission_Manual
+2024-03-03 17:50:57,897 : INFO : End of creating table...
+2024-03-03 17:50:58,229 : INFO : Opened used_cars database successfully
+2024-03-03 17:50:59,874 : INFO : Start of inserting data into table...
+2024-03-03 17:53:20,896 : INFO : Data insertion completed successfully.
+2024-03-03 17:53:20,898 : INFO : End of inserting data into table...
+2024-03-03 17:53:20,898 : INFO : Start of elbow plotting...
+2024-03-03 17:53:25,523 : INFO : The optimum number of clusters is: 3
+2024-03-03 17:53:25,523 : INFO : End of elbow plotting...
+2024-03-03 17:53:25,524 : INFO : Start of Create clusters...
+2024-03-03 17:53:25,807 : INFO : Saving Models
+2024-03-03 17:53:25,807 : INFO : Saving Models
+2024-03-03 17:53:25,874 : INFO : Model File KMeans saved
+2024-03-03 17:53:25,874 : INFO : Model File KMeans saved
+2024-03-03 17:53:25,875 : INFO : End of Save Models
+2024-03-03 17:53:25,875 : INFO : End of Save Models
+2024-03-03 17:53:25,878 : INFO : succesfully created 3clusters.
+2024-03-03 17:53:25,878 : INFO : End of Create clusters...
+2024-03-03 17:53:26,525 : INFO : Model successfully trained on XGBRegressor
+2024-03-03 17:53:26,526 : INFO : Saving Models
+2024-03-03 17:53:26,526 : INFO : Saving Models
+2024-03-03 17:53:26,535 : INFO : Model File XGBRegressor0 saved
+2024-03-03 17:53:26,535 : INFO : Model File XGBRegressor0 saved
+2024-03-03 17:53:26,535 : INFO : End of Save Models
+2024-03-03 17:53:26,535 : INFO : End of Save Models
+2024-03-03 17:53:26,847 : INFO : Model successfully trained on XGBRegressor
+2024-03-03 17:53:26,848 : INFO : Saving Models
+2024-03-03 17:53:26,848 : INFO : Saving Models
+2024-03-03 17:53:26,856 : INFO : Model File XGBRegressor1 saved
+2024-03-03 17:53:26,856 : INFO : Model File XGBRegressor1 saved
+2024-03-03 17:53:26,856 : INFO : End of Save Models
+2024-03-03 17:53:26,856 : INFO : End of Save Models
+2024-03-03 17:53:27,142 : INFO : Model successfully trained on XGBRegressor
+2024-03-03 17:53:27,143 : INFO : Saving Models
+2024-03-03 17:53:27,143 : INFO : Saving Models
+2024-03-03 17:53:27,152 : INFO : Model File XGBRegressor2 saved
+2024-03-03 17:53:27,152 : INFO : Model File XGBRegressor2 saved
+2024-03-03 17:53:27,153 : INFO : End of Save Models
+2024-03-03 17:53:27,153 : INFO : End of Save Models
+2024-03-03 17:53:27,153 : INFO : End of Training

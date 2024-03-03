@@ -1,0 +1,1 @@
+{"Mileage_Max": 50.05970149253731, "Mileage_Min": 0.0, "Kilometers_Driven_Max": 6500000, "Kilometers_Driven_Min": 171, "Year_Max": 2019, "Year_Min": 1998, "Power_Max": 560.0, "Power_Min": 34.2, "Engine_Max": 5998.0, "Engine_Min": 624.0}

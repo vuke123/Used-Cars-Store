@@ -1,0 +1,40 @@
+2024-03-02 18:01:20,626 : INFO : Start of Training
+2024-03-02 18:01:20,627 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7f3271725b50>>
+2024-03-02 18:01:20,627 : INFO : Start of reading dataset...
+2024-03-02 18:05:32,539 : INFO : End of reading dataset...
+2024-03-02 18:06:21,123 : INFO : Start of splitting features and label ...
+2024-03-02 18:06:43,644 : INFO : End of splitting features and label ...
+2024-03-02 18:06:45,631 : INFO : Start of elbow plotting...
+2024-03-02 18:06:54,168 : INFO : The optimum number of clusters is: 3
+2024-03-02 18:06:54,168 : INFO : End of elbow plotting...
+2024-03-02 18:09:24,592 : INFO : Start of Create clusters...
+2024-03-02 18:09:25,072 : INFO : Saving Models
+2024-03-02 18:09:25,072 : INFO : Saving Models
+2024-03-02 18:09:25,257 : INFO : Model File KMeans saved
+2024-03-02 18:09:25,257 : INFO : Model File KMeans saved
+2024-03-02 18:09:25,258 : INFO : End of Save Models
+2024-03-02 18:09:25,258 : INFO : End of Save Models
+2024-03-02 18:09:25,265 : INFO : succesfully created 3clusters.
+2024-03-02 18:09:25,266 : INFO : End of Create clusters...
+2024-03-02 18:09:37,600 : INFO : Model successfully trained on XGBRegressor
+2024-03-02 18:09:37,601 : INFO : Saving Models
+2024-03-02 18:09:37,601 : INFO : Saving Models
+2024-03-02 18:09:37,619 : INFO : Model File XGBRegressor0 saved
+2024-03-02 18:09:37,619 : INFO : Model File XGBRegressor0 saved
+2024-03-02 18:09:37,620 : INFO : End of Save Models
+2024-03-02 18:09:37,620 : INFO : End of Save Models
+2024-03-02 18:09:40,571 : INFO : Model successfully trained on XGBRegressor
+2024-03-02 18:09:40,572 : INFO : Saving Models
+2024-03-02 18:09:40,572 : INFO : Saving Models
+2024-03-02 18:09:40,587 : INFO : Model File XGBRegressor1 saved
+2024-03-02 18:09:40,587 : INFO : Model File XGBRegressor1 saved
+2024-03-02 18:09:40,588 : INFO : End of Save Models
+2024-03-02 18:09:40,588 : INFO : End of Save Models
+2024-03-02 18:09:43,477 : INFO : Model successfully trained on XGBRegressor
+2024-03-02 18:09:43,478 : INFO : Saving Models
+2024-03-02 18:09:43,478 : INFO : Saving Models
+2024-03-02 18:09:43,493 : INFO : Model File XGBRegressor2 saved
+2024-03-02 18:09:43,493 : INFO : Model File XGBRegressor2 saved
+2024-03-02 18:09:43,493 : INFO : End of Save Models
+2024-03-02 18:09:43,493 : INFO : End of Save Models
+2024-03-02 18:09:44,490 : INFO : End of Training

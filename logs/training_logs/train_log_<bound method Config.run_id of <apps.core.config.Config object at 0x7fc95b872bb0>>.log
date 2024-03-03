@@ -1,0 +1,21 @@
+2024-03-03 17:06:29,898 : INFO : Start of Training
+2024-03-03 17:06:29,898 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7fc95b872bb0>>
+2024-03-03 17:06:29,899 : INFO : Start of reading dataset...
+2024-03-03 17:06:35,547 : INFO : End of reading dataset...
+2024-03-03 17:06:35,547 : INFO : Start of splitting features and label ...
+2024-03-03 17:06:35,551 : INFO : End of splitting features and label ...
+2024-03-03 17:06:35,551 : INFO : Saving to database
+2024-03-03 17:06:41,171 : INFO : Start of creating table...
+2024-03-03 17:06:42,074 : INFO : Opened used_cars database successfully
+2024-03-03 17:07:04,338 : INFO : The column Year already exists in uc_training_data table.
+2024-03-03 17:07:05,326 : ERROR : Exception while adding columns Year is syntax error at or near "<"
+LINE 1: ALTER TABLE uc_training_data ADD COLUMN Year <class 'float'>
+                                                     ^
+.
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 73, in create_table
+    c.execute(f'ALTER TABLE {table_name} ADD COLUMN {key} {type_of_column}')
+psycopg2.errors.SyntaxError: syntax error at or near "<"
+LINE 1: ALTER TABLE uc_training_data ADD COLUMN Year <class 'float'>
+                                                     ^
+

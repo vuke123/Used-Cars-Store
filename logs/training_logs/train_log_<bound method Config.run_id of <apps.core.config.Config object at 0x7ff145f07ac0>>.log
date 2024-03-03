@@ -1,0 +1,26 @@
+2024-03-03 17:38:57,584 : INFO : Start of Training
+2024-03-03 17:38:57,584 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7ff145f07ac0>>
+2024-03-03 17:38:57,585 : INFO : Start of reading dataset...
+2024-03-03 17:39:02,348 : INFO : End of reading dataset...
+2024-03-03 17:39:02,348 : INFO : Start of splitting features and label ...
+2024-03-03 17:39:02,350 : INFO : End of splitting features and label ...
+2024-03-03 17:39:02,350 : INFO : Saving to database
+2024-03-03 17:39:07,685 : INFO : Start of creating table...
+2024-03-03 17:39:08,176 : INFO : Opened used_cars database successfully
+2024-03-03 17:39:08,711 : INFO : ALTER TABLE uc_training_data ADD COLUMN Year
+2024-03-03 17:39:08,813 : INFO : ALTER TABLE uc_training_data ADD COLUMN Mileage
+2024-03-03 17:39:08,915 : INFO : ALTER TABLE uc_training_data ADD COLUMN Engine
+2024-03-03 17:39:09,018 : INFO : ALTER TABLE uc_training_data ADD COLUMN Power
+2024-03-03 17:39:09,120 : INFO : ALTER TABLE uc_training_data ADD COLUMN Price
+2024-03-03 17:39:09,223 : INFO : ALTER TABLE uc_training_data ADD COLUMN Brand
+2024-03-03 17:39:09,325 : INFO : ALTER TABLE uc_training_data ADD COLUMN Normalized_Kilometers
+2024-03-03 17:39:09,427 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_CNG
+2024-03-03 17:39:09,530 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_Diesel
+2024-03-03 17:39:09,639 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_LPG
+2024-03-03 17:39:09,735 : INFO : ALTER TABLE uc_training_data ADD COLUMN Fuel_Type_Petrol
+2024-03-03 17:39:09,837 : INFO : ALTER TABLE uc_training_data ADD COLUMN Transmission_Automatic
+2024-03-03 17:39:09,939 : INFO : ALTER TABLE uc_training_data ADD COLUMN Transmission_Manual
+2024-03-03 17:39:10,042 : INFO : End of creating table...
+2024-03-03 17:39:10,656 : INFO : Opened used_cars database successfully
+2024-03-03 17:39:13,734 : INFO : Start of inserting data into table...
+2024-03-03 17:49:29,796 : INFO : End of inserting data into table...
