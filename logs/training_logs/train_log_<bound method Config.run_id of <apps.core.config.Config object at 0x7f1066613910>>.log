@@ -1,3 +1,0 @@
-2024-03-02 18:41:42,491 : INFO : Start of Training
-2024-03-02 18:41:42,492 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7f1066613910>>
-2024-03-02 18:41:42,492 : INFO : Start of reading dataset...
