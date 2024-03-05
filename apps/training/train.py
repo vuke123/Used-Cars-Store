@@ -19,6 +19,7 @@ class TrainModel:
         self.training_path = training_path
         self.columns = columns
         self.training_db = training_db
+        self.data = None
 
     def training_model(self):
         try:
@@ -26,39 +27,37 @@ class TrainModel:
             self.logger.info('Run_id:' + str(self.run_id))
 
             self.logger.info('Start of reading dataset...')
-            preprocess_model = ut.Utils(self.run_id, self.raw_data, 'INFO',
-                                        self.utils_memory, self.label_encoder, self.columns)
 
-            self.data = preprocess_model.preprocess_raw_data()
+            pg_db = db.DatabaseOperation(self.run_id, self.training_path, 'training')
 
-            if 'Unnamed: 0' in self.data.columns:
-                self.data.drop(columns='Unnamed: 0', inplace=True)
+            self.data = pg_db.fetch_data_to_dataframe(self.training_db, "uc_training_data")
 
-            self.cluster = KMeansCluster(self.run_id)
+            if self.data is not None:
+                print("Data fetched successfully.")
+            else:
+                print("Failed to fetch data.")
+                preprocess_model = ut.Utils(self.run_id, self.raw_data, 'INFO',
+                                            self.utils_memory, self.label_encoder, self.columns)
+                self.data = preprocess_model.preprocess_raw_data()
+                pg_db.create_table(self.training_db, "uc_training_data")
+                pg_db.insert_data(self.training_db, "uc_training_data", self.data)
+
             self.logger.info('End of reading dataset...')
             self.logger.info('Start of splitting features and label ...')
 
-            self.X = self.data.drop(labels='Price',
+            self.X = self.data.drop(labels='price',
                                     axis=1)
 
-            self.y = self.data['Price']
+            self.y = self.data['price']
             self.logger.info('End of splitting features and label ...')
 
-            self.logger.info('Saving to database')
-
-            self.columns['price'] = float
-            self.columns['normalized_kilometers'] = self.columns['kilometers_driven']
-            self.columns.pop('kilometers_driven', None)
-
-            pg_db = db.DatabaseOperation(self.run_id, self.training_path, 'training', self.columns)
-            pg_db.create_table(self.training_db, "uc_training_data")
-            pg_db.insert_data(self.training_db, "uc_training_data", self.data)
-
+            self.cluster = KMeansCluster(self.run_id)
             number_of_clusters = self.cluster.elbow_plot(self.X)
 
             self.X = self.cluster.create_clusters(self.X, number_of_clusters)
             self.X['Labels'] = self.y
             list_of_clusters = self.X['Cluster'].unique()
+
             for i in list_of_clusters:
                 cluster_data = self.X[self.X['Cluster'] == i]
 
@@ -67,11 +66,13 @@ class TrainModel:
 
                 x_train, x_test, y_train, y_test = train_test_split(cluster_features, cluster_label, test_size=0.2,
                                                                     random_state=0)
+
                 best_model_name, best_model = self.train_XGBRegressor(x_train, y_train)
 
                 self.fileOperation.save_model(best_model, best_model_name + str(i))
 
             self.logger.info('End of Training')
+
         except Exception:
             self.logger.exception('Unsuccessful End of Training')
             raise Exception

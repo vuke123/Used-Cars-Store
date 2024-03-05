@@ -1,0 +1,26 @@
+2024-03-05 18:40:56,165 : INFO : Start of Training
+2024-03-05 18:40:56,166 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7f4353739b80>>
+2024-03-05 18:40:56,167 : INFO : Start of reading dataset...
+2024-03-05 18:40:58,884 : INFO : Opened used_cars database successfully
+2024-03-05 18:41:00,212 : INFO : End of reading dataset...
+2024-03-05 18:41:00,213 : INFO : Start of splitting features and label ...
+2024-03-05 18:41:11,955 : ERROR : Unsuccessful End of Training
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/training/train.py", line 48, in training_model
+    self.data['fuel_type_cng'] = self.data['fuel_type_cng'].astype(int)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/generic.py", line 5806, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 414, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/internals/blocks.py", line 592, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/dtypes/cast.py", line 1300, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/dtypes/cast.py", line 1248, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/pandas/core/dtypes/cast.py", line 1165, in astype_nansafe
+    return lib.astype_intsafe(arr, dtype)
+  File "pandas/_libs/lib.pyx", line 679, in pandas._libs.lib.astype_intsafe
+ValueError: invalid literal for int() with base 10: '1.0'

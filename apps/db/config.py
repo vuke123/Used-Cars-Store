@@ -3,9 +3,11 @@ import csv
 import os
 from apps.core.logger import Logger
 import json
+import pandas as pd
+
 class DatabaseOperation:
 
-    def __init__(self, run_id, data_path, mode, columns):
+    def __init__(self, run_id, data_path, mode):
         self.run_id = run_id
         self.data_path = data_path
         self.logger = Logger(self.run_id, 'DatabaseOperation', mode)
@@ -85,7 +87,6 @@ class DatabaseOperation:
     def insert_data(self, database_name, table_name, df):
         conn = self.database_connection(database_name)
         c = conn.cursor()
-        df = df[:500]
         self.logger.info('Start of inserting data into table...')
         try:
             for index, row in df.iterrows():
@@ -125,3 +126,25 @@ class DatabaseOperation:
             self.logger.info('End of exporting data into CSV...')
         except Exception as e:
             self.logger.exception('Exception raised while exporting data into CSV: %s ' % e)
+
+    def fetch_data_to_dataframe(self, database, table):
+        try:
+            conn = self.database_connection(database)
+
+            query = f"SELECT * FROM {table}"
+
+            df = pd.read_sql(query, conn)
+
+            df['fuel_type_cng'] = df['fuel_type_cng'].astype(float).astype(int)
+            df['fuel_type_lpg'] = df['fuel_type_lpg'].astype(float).astype(int)
+            df['fuel_type_petrol'] = df['fuel_type_petrol'].astype(float).astype(int)
+            df['fuel_type_diesel'] = df['fuel_type_diesel'].astype(float).astype(int)
+            df['transmission_manual'] = df['transmission_manual'].astype(float).astype(int)
+            df['transmission_automatic'] = df['transmission_automatic'].astype(float).astype(int)
+
+            conn.close()
+
+            return df
+        except Exception as e:
+            print(f"Error fetching data: {e}")
+            return None
