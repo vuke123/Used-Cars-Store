@@ -7,6 +7,10 @@ import numpy as np
 
 
 def data_validation(data, columns):
+    columns['price'] = float
+    columns['normalized_kilometers'] = self.columns['kilometers_driven']
+    columns.pop('kilometers_driven', None)
+
     df = pd.read_csv(data)
     data_columns = {column.lower() for column in df.columns}
 
@@ -131,6 +135,8 @@ def preprocess_predict_data(data, utils_memory, label_encoder):
                 utils_memory["Engine_Max"] - utils_memory["Engine_Min"])
     label_encoder_ = joblib.load(label_encoder)
     data['brand'] = label_encoder_["Brand"].transform(data['brand'])
+    if 'Unnamed: 0' in data.columns:
+        data.drop(columns='Unnamed: 0', inplace=True)
 
     return data
 

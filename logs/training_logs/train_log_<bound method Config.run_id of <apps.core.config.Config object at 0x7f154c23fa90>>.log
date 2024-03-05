@@ -1,0 +1,46 @@
+2024-03-05 18:04:19,862 : INFO : Start of Training
+2024-03-05 18:04:19,863 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7f154c23fa90>>
+2024-03-05 18:04:19,863 : INFO : Start of reading dataset...
+2024-03-05 18:04:22,853 : INFO : Opened used_cars database successfully
+2024-03-05 18:04:50,207 : INFO : End of reading dataset...
+2024-03-05 18:04:50,208 : INFO : Start of splitting features and label ...
+2024-03-05 18:04:50,211 : INFO : End of splitting features and label ...
+2024-03-05 18:04:50,212 : INFO : Start of elbow plotting...
+2024-03-05 18:05:04,247 : INFO : The optimum number of clusters is: 3
+2024-03-05 18:05:04,247 : INFO : End of elbow plotting...
+2024-03-05 18:05:04,247 : INFO : Start of Create clusters...
+2024-03-05 18:05:05,015 : INFO : Saving Models
+2024-03-05 18:05:05,015 : INFO : Saving Models
+2024-03-05 18:05:05,136 : INFO : Model File KMeans saved
+2024-03-05 18:05:05,136 : INFO : Model File KMeans saved
+2024-03-05 18:05:05,136 : INFO : End of Save Models
+2024-03-05 18:05:05,136 : INFO : End of Save Models
+2024-03-05 18:05:05,141 : INFO : succesfully created 3clusters.
+2024-03-05 18:05:05,141 : INFO : End of Create clusters...
+2024-03-05 18:05:17,106 : ERROR : Unsuccessful End of Training
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/training/train.py", line 73, in training_model
+    best_model_name, best_model = self.train_XGBRegressor(x_train, y_train)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/training/train.py", line 85, in train_XGBRegressor
+    model.fit(x_train, y_train)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/core.py", line 506, in inner_f
+    return f(**kwargs)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/sklearn.py", line 761, in fit
+    train_dmatrix, evals = _wrap_evaluation_matrices(
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/sklearn.py", line 286, in _wrap_evaluation_matrices
+    train_dmatrix = create_dmatrix(
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/sklearn.py", line 775, in <lambda>
+    create_dmatrix=lambda **kwargs: DMatrix(nthread=self.n_jobs, **kwargs),
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/core.py", line 506, in inner_f
+    return f(**kwargs)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/core.py", line 616, in __init__
+    handle, feature_names, feature_types = dispatch_data_backend(
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/data.py", line 707, in dispatch_data_backend
+    return _from_pandas_df(data, enable_categorical, missing, threads,
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/data.py", line 297, in _from_pandas_df
+    data, feature_names, feature_types = _transform_pandas_df(
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/xgboost/data.py", line 242, in _transform_pandas_df
+    raise ValueError(msg + ', '.join(bad_fields))
+ValueError: DataFrame.dtypes for data must be int, float, bool or category.  When
+                categorical type is supplied, DMatrix parameter `enable_categorical` must
+                be set to `True`.fuel_type_cng, fuel_type_diesel, fuel_type_lpg, fuel_type_petrol, transmission_automatic, transmission_manual
