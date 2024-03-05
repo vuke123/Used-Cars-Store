@@ -1,4 +1,0 @@
-2024-03-05 17:50:59,422 : INFO : Start of Training
-2024-03-05 17:50:59,444 : INFO : Run_id:<bound method Config.run_id of <apps.core.config.Config object at 0x7fb1a9020ac0>>
-2024-03-05 17:50:59,445 : INFO : Start of reading dataset...
-2024-03-05 17:51:12,305 : INFO : Opened used_cars database successfully
