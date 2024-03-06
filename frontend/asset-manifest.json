@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.38d9d50b.css",
+    "main.js": "/static/js/main.0f3e0fd7.js",
+    "static/js/453.7a6ab36c.chunk.js": "/static/js/453.7a6ab36c.chunk.js",
+    "static/media/Insolata.ttf": "/static/media/Insolata.f2f0207973661b7491ba.ttf",
+    "static/media/cars1.webp": "/static/media/cars1.b9b68777481fa2b392bc.webp",
+    "index.html": "/index.html",
+    "main.38d9d50b.css.map": "/static/css/main.38d9d50b.css.map",
+    "main.0f3e0fd7.js.map": "/static/js/main.0f3e0fd7.js.map",
+    "453.7a6ab36c.chunk.js.map": "/static/js/453.7a6ab36c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38d9d50b.css",
+    "static/js/main.0f3e0fd7.js"
+  ]
+}

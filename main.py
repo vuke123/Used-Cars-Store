@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, send_from_directory
 from flask_cors import CORS, cross_origin
 from wsgiref import simple_server
 from apps.core.config import Config
@@ -45,10 +45,19 @@ def predict_endpoint():
     prediction_response = prediction.predict()
     return Response(f'Prediction --> {prediction_response}')
 
+@app.route('/')
+def serve_react_app():
+    return send_from_directory('frontend', 'index.html')
+
+@app.route('/static/<path:path>')
+def serve_static(path):
+    return send_from_directory('frontend/static', path)
+
 if __name__ == '__main__':
     #app.run()
     host = '0.0.0.0'
     port = 5000
     httpd = simple_server.make_server(host, port, app)
     httpd.serve_forever()
+
 
