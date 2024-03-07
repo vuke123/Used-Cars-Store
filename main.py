@@ -30,6 +30,12 @@ def training_endpoint():
     train_model.training_model()
     return Response('Training endpoint')
 
+@app.route('/')
+@cross_origin()
+
+def empty_endpoint():
+    return Response('Backend server is alive!')
+
 @app.route('/predict', methods=['POST'])
 @cross_origin()
 
@@ -45,18 +51,10 @@ def predict_endpoint():
     prediction_response = prediction.predict()
     return Response(f'Prediction --> {prediction_response}')
 
-@app.route('/')
-def serve_react_app():
-    return send_from_directory('frontend', 'index.html')
-
-@app.route('/static/<path:path>')
-def serve_static(path):
-    return send_from_directory('frontend/static', path)
-
 if __name__ == '__main__':
     #app.run()
     host = '0.0.0.0'
-    port = 5000
+    port = 80
     httpd = simple_server.make_server(host, port, app)
     httpd.serve_forever()
 
