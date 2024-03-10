@@ -10,6 +10,7 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_core.messages.human import HumanMessage
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/openai_service', methods=['POST'])
 
@@ -19,7 +20,7 @@ def openai_endpoint():
     #llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
     #print(llm([HumanMessage(content="What is capital of Botswana?")]))
 
-    return Response('OpenAI connection endpoint')
+    return Response('OpenAI connection endpoint not working properly. Payed subscription is needed')
 
 @app.route('/training', methods=['POST'])
 @cross_origin()
