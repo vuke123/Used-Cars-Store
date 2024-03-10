@@ -37,7 +37,7 @@ def training_endpoint():
 def empty_endpoint():
     return Response('Backend server is alive!')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 @cross_origin()
 
 def predict_endpoint():
