@@ -22,7 +22,7 @@ def openai_endpoint():
 
     return Response('OpenAI connection endpoint not working properly. Payed subscription is needed')
 
-@app.route('/training', methods=['POST'])
+@app.route('/training', methods=['GET','POST'])
 @cross_origin()
 
 def training_endpoint():
