@@ -15,8 +15,8 @@ class Utils:
             ut.data_validation(self.data_path, self.columns)
             df = ut.preprocess_raw_data(self.data_path, self.utils_memory, self.label_encoder)
             df = df.dropna()
-            if 'Unnamed: 0' in data.columns:
-                data.drop(columns='Unnamed: 0', inplace=True)
+            if 'Unnamed: 0' in df.columns:
+                df.drop(columns='Unnamed: 0', inplace=True)
         except SyntaxError as e:
             print(f"Syntax error occurred: {e}")
             df = None
