@@ -27,7 +27,8 @@ def openai_endpoint():
 
 def training_endpoint():
     config = Config()
-    train_model = TrainModel(config.run_id, config.training_data_path, config.raw_data_path, config.utils_memory, config.label_encoder, config.training_data_path, config.training_database, config.columns)
+    run_id = config.run_id()
+    train_model = TrainModel(run_id, config.training_data_path, config.raw_data_path, config.utils_memory, config.label_encoder, config.training_data_path, config.training_database, config.columns)
     train_model.training_model()
     return Response('Training endpoint')
 
@@ -46,6 +47,7 @@ def predict_endpoint():
     data_path = config.prediction_data_path
     try:
         request_data = request.get_json()
+        print(request_data)
     except Exception as e:
         return Response(f'{e}')
     prediction = PredictModel(run_id, data_path, request_data)
@@ -54,8 +56,8 @@ def predict_endpoint():
 
 if __name__ == '__main__':
     #app.run()
-    host = '0.0.0.0'
-    port = 80
+    host = '127.0.0.1'
+    port = 5000
     httpd = simple_server.make_server(host, port, app)
     httpd.serve_forever()
 

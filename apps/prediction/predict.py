@@ -12,7 +12,7 @@ class PredictModel:
         self.request_data = request_data
         self.logger = Logger(self.run_id, 'Predict', 'predict')
         self.column_names = {"year": "FLOAT", "mileage": "INTEGER", "engine": "FLOAT", "power": "FLOAT",
-                             "brand": "TEXT", "normalized_kilometers": "FLOAT",
+                             "brand": "TEXT", "kilometers_driven": "FLOAT",
                              "fuel_type_CNG": "BOOLEAN", "fuel_type_Diesel": "BOOLEAN", "fuel_type_LPG": "BOOLEAN",
                              "fuel_type_Petrol": "BOOLEAN",
                              "transmission_Automatic": "BOOLEAN", "transmission_Manual": "BOOLEAN"}
@@ -30,7 +30,7 @@ class PredictModel:
             utils_memory_data = file.read()
 
         utils_memory_dict = json.loads(utils_memory_data)
-        preprocess_model = ut.Utils(self.run_id, self.data_path, 'INFO', utils_memory_dict, self.label_encoder)
+        preprocess_model = ut.Utils(self.run_id, self.data_path, 'INFO', utils_memory_dict, self.label_encoder, self.column_names)
 
         data = pd.get_dummies(data, columns=columns_to_encode)
         data = preprocess_model.complete_columns(data)
@@ -38,9 +38,8 @@ class PredictModel:
         data = preprocess_model.preprocess_predict_data(data)
         self.y_kmeans = kmeans.predict(data)
         xgbregressor = joblib.load(f'apps/models/XGBRegressor{self.y_kmeans[0]}/XGBRegressor{self.y_kmeans[0]}.sav')
-        prediction = xgbregressor.predict(data.iloc[:, 1:])
-        #MONEY VALUE CONVERTOR
-        prediction = prediction * 100000 / 0.011 #lakh - rupees - eur
+        prediction = xgbregressor.predict(data.iloc[:, :])
+        prediction = prediction * 100000 * 0.011 #lakh - rupees - eur
 
         return prediction
     # except Exception as e:

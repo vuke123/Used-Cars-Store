@@ -23,6 +23,8 @@ class Utils:
         return df
 
     def preprocess_predict_data(self, df):
+        df['normalized_kilometers'] = df['kilometers_driven']
+        df.pop('kilometers_driven')
         df = ut.preprocess_predict_data(df, self.utils_memory, self.label_encoder)
         return df
 
@@ -31,7 +33,7 @@ class Utils:
             'fuel_type_CNG', 'fuel_type_Diesel', 'fuel_type_LPG', 'fuel_type_Petrol',
             'transmission_Automatic', 'transmission_Manual'
         ]
-        sorted_keys = [key for key in self.column_names.keys()]
+        sorted_keys = [key for key in self.columns.keys()]
 
         for column in columns_to_create:
             if column not in data.columns:

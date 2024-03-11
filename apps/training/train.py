@@ -45,7 +45,7 @@ class TrainModel:
             self.logger.info('End of reading dataset...')
             self.logger.info('Start of splitting features and label ...')
 
-            self.X = self.data.drop(labels='price',
+            self.X = self.data.drop(labels=['price', 'id'],
                                     axis=1)
 
             self.y = self.data['price']

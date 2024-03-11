@@ -8,7 +8,7 @@ import numpy as np
 
 def data_validation(data, columns):
     columns['price'] = float
-    columns['normalized_kilometers'] = self.columns['kilometers_driven']
+    columns['normalized_kilometers'] = columns['kilometers_driven']
     columns.pop('kilometers_driven', None)
 
     df = pd.read_csv(data)
