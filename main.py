@@ -60,5 +60,3 @@ if __name__ == '__main__':
     port = 80
     httpd = simple_server.make_server(host, port, app)
     httpd.serve_forever()
-
-
