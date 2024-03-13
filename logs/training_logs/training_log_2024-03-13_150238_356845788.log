@@ -1,0 +1,22 @@
+2024-03-13 15:02:48,378 : INFO : Start of Training
+2024-03-13 15:02:48,378 : INFO : Run_id:2024-03-13_150238_356845788
+2024-03-13 15:02:48,379 : INFO : Start of reading dataset...
+2024-03-13 15:05:04,590 : ERROR : Error while connecting to database: connection to server at "flaskpostgres-abc123.postgres.database.azure.com" (52.178.209.41), port 5432 failed: Connection timed out
+	Is the server running on that host and accepting TCP/IP connections?
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 41, in database_connection
+    conn = psycopg2.connect(
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "flaskpostgres-abc123.postgres.database.azure.com" (52.178.209.41), port 5432 failed: Connection timed out
+	Is the server running on that host and accepting TCP/IP connections?
+
+2024-03-13 15:18:46,668 : ERROR : Unsuccessful End of Training
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/training/train.py", line 41, in training_model
+    self.data = preprocess_model.preprocess_raw_data()
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/utils/utils.py", line 15, in preprocess_raw_data
+    ut.data_validation(self.data_path, self.columns)
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/utils/data_utils.py", line 19, in data_validation
+    raise ValueError(f"There are missing required column: {key}")
+ValueError: There are missing required column: normalized_kilometers

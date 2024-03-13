@@ -20,8 +20,9 @@ class DatabaseOperation:
         self.host = ""
         self.user = ""
         self.azure_config_path = "apps/db/azure_config.json"
-
+        self.ssl_cert_path = "apps/db/DigiCertGlobalRootCA.crt.pem"
         try:
+            self.ssl_cert_path = os.path.join(os.getcwd(), self.ssl_cert_path)
             azure_path = os.path.join(os.getcwd(), self.azure_config_path)
             with open(azure_path, 'r') as file:
                 azure_config = json.load(file)
@@ -43,7 +44,9 @@ class DatabaseOperation:
                 user=self.user,
                 password=self.password,
                 host=self.host,
-                port="5432"
+                port="5432",
+                sslmode='require',   #SSL/TLS encryption
+                sslrootcert=self.ssl_cert_path
             )
             self.logger.info("Opened %s database successfully" % database_name)
         except Exception as e:

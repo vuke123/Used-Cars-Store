@@ -1,0 +1,13 @@
+2024-03-13 14:36:01,949 : INFO : Start of Training
+2024-03-13 14:36:01,950 : INFO : Run_id:2024-03-13_143553_741168806
+2024-03-13 14:36:01,951 : INFO : Start of reading dataset...
+2024-03-13 14:38:16,906 : ERROR : Error while connecting to database: connection to server at "flaskpostgres-abc123.postgres.database.azure.com" (52.178.209.41), port 5432 failed: Connection timed out
+	Is the server running on that host and accepting TCP/IP connections?
+Traceback (most recent call last):
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/apps/db/config.py", line 41, in database_connection
+    conn = psycopg2.connect(
+  File "/home/luka/PycharmProjects/UsedCarsML_v1/pythonProject/.venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "flaskpostgres-abc123.postgres.database.azure.com" (52.178.209.41), port 5432 failed: Connection timed out
+	Is the server running on that host and accepting TCP/IP connections?
+
