@@ -1,1 +1,3 @@
 https://www.kaggle.com/datasets/avikasliwal/used-cars-price-prediction/data?select=train-data.csv
+
+Flask backend integrates with Azure Database for PostgreSQL, Dockerized for portability, and deployed via GitHub Actions and AKS(Azure Kubernetes Service). Theme and content is basically pro-form.
